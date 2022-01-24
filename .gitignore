@@ -1,7 +1,11 @@
 site_code.html
 */.DS_Store
+.DS_Store
 token_main.txt
 token_all_questions.txt
+token_immediate_sender.txt
+TakeQuestionFromFile/credentials.json
+TakeQuestionFromFile/token.json
 
 # Prerequisites
 *.d
