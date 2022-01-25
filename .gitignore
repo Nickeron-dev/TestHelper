@@ -8,6 +8,8 @@ TakeQuestionFromFile/credentials.json
 TakeQuestionFromFile/token.json
 allQuestionsManager/credentials.json
 allQuestionsManager/token.json
+TakeQuestionsFromFileDaria/credentials.json
+TakeQuestionsFromFileArtem/credentials.json
 
 # Prerequisites
 *.d
