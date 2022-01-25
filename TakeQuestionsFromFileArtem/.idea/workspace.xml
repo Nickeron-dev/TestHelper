@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dccc2b37-bf51-4e72-a286-58ab3ec7c11d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../TakeQuestionFromFile/all_questions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../TakeQuestionFromFile/all_questions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TakeQuestionFromFile/all_questions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../TakeQuestionFromFile/all_questions_illia.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TakeQuestionFromFile/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../TakeQuestionFromFile/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../previous_questions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../previous_questions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TakeQuestionsFromFileDaria/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../TakeQuestionsFromFileDaria/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../previous_questions.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +69,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1643106551695</updated>
-      <workItem from="1643106553585" duration="3345000" />
+      <workItem from="1643106553585" duration="4555000" />
     </task>
     <servers />
   </component>

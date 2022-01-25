@@ -25,6 +25,7 @@ import os.path
 import webbrowser
 import pyperclip
 import time
+import codecs
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -78,7 +79,10 @@ def main():
         previous_question = "Назвіть індустріальні об'єкти, які були побудовані у другій половині 50-х років - на " \
                             "початку 60-х років. "
         while True:
-            with open('../site_code.html') as site_code_file:
+            # with open('../site_code.html') as site_code_file:
+            #     string_file = site_code_file.read()
+            try:
+                site_code_file = codecs.open('../site_code.html', 'r', 'utf-8')
                 string_file = site_code_file.read()
                 REQUIRED_CLASS = "student-session-question-title"
                 found_index = string_file.find(REQUIRED_CLASS)
@@ -88,12 +92,21 @@ def main():
                         last_index = i + 1
                         break
                 site_code_file.close()
+            except PermissionError as exc:
+                print("OK")
+                continue
 
-            question = string_file[(found_index + len(REQUIRED_CLASS) + 2):(found_index + len(REQUIRED_CLASS) + 2
+            with open("../site_code.html") as site_code_file_general:
+                string_file_general = site_code_file_general.read()
+
+            site_code_file_general.close()
+            question_copy = string_file[(found_index + len(REQUIRED_CLASS) + 2):(found_index + len(REQUIRED_CLASS) + 2
+                                                                            + last_index)]
+            question = site_code_file_general[(found_index + len(REQUIRED_CLASS) + 2):(found_index + len(REQUIRED_CLASS) + 2
                                                                             + last_index)]
             if question != previous_question:
                 previous_question = question
-                pyperclip.copy(question)
+                pyperclip.copy(question_copy)  # here
                 time.sleep(2)
                 query = "https://www.google.com/"
                 webbrowser.open(query)

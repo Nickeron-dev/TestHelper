@@ -21,6 +21,7 @@
 # encoding: utf-8
 from __future__ import print_function
 
+import io
 import os.path
 import webbrowser
 import pyperclip
@@ -34,7 +35,7 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 # If modifying these scopes, delete the file token.json.
-from googleapiclient.http import MediaFileUpload
+from googleapiclient.http import MediaFileUpload, MediaIoBaseDownload
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
 
@@ -100,25 +101,55 @@ def main():
                 time.sleep(2)
                 query = "https://www.google.com/"
                 webbrowser.open(query)
-                with open('all_questions.txt', 'a') as all_question_file:
+                with open('all_questions_illia.txt', 'a') as all_question_file:
                     all_question_file.write(question + '\n')
                 all_question_file.close()
 
-                with open('../previous_questions.txt', 'r') as previous_questions_file:
+                with open('../previous_questions_illia.txt', 'r') as previous_questions_file:
                     previous_file_id = previous_questions_file.read()
                     service.files().delete(fileId=previous_file_id).execute()
 
                 previous_questions_file.close()
-                file_metadata = {'name': 'all_questions.txt'}
-                media = MediaFileUpload('all_questions.txt', mimetype='text/plain')
+                # request = service.files().get_media(fileId='1ICvjNaq7nR6kQ_wFErNUo6VlC8JtBDLD')
+                # fh = io.BytesIO()
+                # downloader = MediaIoBaseDownload(fh, request)
+                # done = False
+                # while done is False:
+                #     status, done = downloader.next_chunk()
+                #     print("Download %d%%." % int(status.progress() * 100))
+                #
+                # with io.open("previous_questions_illia.txt", "wb") as illias_questions:
+                #     fh.seek(0)
+                #     illias_questions.write(fh.read())
+
+                file_metadata = {'name': 'all_questions_illia.txt'}
+                media = MediaFileUpload('all_questions_illia.txt', mimetype='text/plain')
                 file = service.files().create(body=file_metadata,
                                               media_body=media,
                                               fields='id').execute()
                 print('File ID: %s' % file.get('id'))
-                with open('../previous_questions.txt', 'w') as previous_questions_file:
+                with open('../previous_questions_illia.txt', 'w') as previous_questions_file:
                     previous_questions_file.write(file.get('id'))
 
                 previous_questions_file.close()
+
+                with open('../previous_id_file_drive_illia.txt', 'r') as previous_questions_file:
+                    previous_file_id = previous_questions_file.read()
+                    service.files().delete(fileId=previous_file_id).execute()
+
+                previous_questions_file.close()
+
+                file_metadata = {'name': 'previous_questions_illia.txt'}
+                media = MediaFileUpload('../previous_questions_illia.txt', mimetype='text/plain')
+                file = service.files().create(body=file_metadata,
+                                              media_body=media,
+                                              fields='id').execute()
+                print('File ID: %s' % file.get('id'))
+                with open('../previous_id_file_drive_illia.txt', 'w') as previous_id:
+                    previous_id.write(file.get('id'))
+
+                previous_id.close()
+
     except HttpError as error:
         # TODO(developer) - Handle errors from drive API.
         print(f'An error occurred: {error}')
