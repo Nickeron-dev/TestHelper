@@ -6,6 +6,8 @@ token_all_questions.txt
 token_immediate_sender.txt
 TakeQuestionFromFile/credentials.json
 TakeQuestionFromFile/token.json
+allQuestionsManager/credentials.json
+allQuestionsManager/token.json
 
 # Prerequisites
 *.d
