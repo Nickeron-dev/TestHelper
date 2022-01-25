@@ -96,14 +96,12 @@ def main():
                 pyperclip.copy(question)
                 time.sleep(2)
                 query = "https://www.google.com/"
-                print(query)
                 webbrowser.open(query)
-                print(question)
                 with open('all_questions.txt', 'a') as all_question_file:
                     all_question_file.write(question + '\n')
                 all_question_file.close()
 
-                with open('previous_questions.txt', 'r') as previous_questions_file:
+                with open('../previous_questions.txt', 'r') as previous_questions_file:
                     previous_file_id = previous_questions_file.read()
                     service.files().delete(fileId=previous_file_id).execute()
 
@@ -114,7 +112,7 @@ def main():
                                               media_body=media,
                                               fields='id').execute()
                 print('File ID: %s' % file.get('id'))
-                with open('previous_questions.txt', 'w') as previous_questions_file:
+                with open('../previous_questions.txt', 'w') as previous_questions_file:
                     previous_questions_file.write(file.get('id'))
 
                 previous_questions_file.close()
