@@ -97,22 +97,22 @@ def main():
                 time.sleep(2)
                 query = "https://www.google.com/"
                 webbrowser.open(query)
-                with open('all_questions.txt', 'a') as all_question_file:
+                with open('all_questions_daria.txt', 'a') as all_question_file:
                     all_question_file.write(question + '\n')
                 all_question_file.close()
 
-                with open('../previous_questions.txt', 'r') as previous_questions_file:
+                with open('../previous_questions_daria.txt', 'r') as previous_questions_file:
                     previous_file_id = previous_questions_file.read()
                     service.files().delete(fileId=previous_file_id).execute()
 
                 previous_questions_file.close()
-                file_metadata = {'name': 'all_questions.txt'}
-                media = MediaFileUpload('all_questions.txt', mimetype='text/plain')
+                file_metadata = {'name': 'all_questions_daria.txt'}
+                media = MediaFileUpload('all_questions_daria.txt', mimetype='text/plain')
                 file = service.files().create(body=file_metadata,
                                               media_body=media,
                                               fields='id').execute()
                 print('File ID: %s' % file.get('id'))
-                with open('../previous_questions.txt', 'w') as previous_questions_file:
+                with open('../previous_questions_daria.txt', 'w') as previous_questions_file:
                     previous_questions_file.write(file.get('id'))
 
                 previous_questions_file.close()

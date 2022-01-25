@@ -21,6 +21,7 @@
 # encoding: utf-8
 from __future__ import print_function
 
+import codecs
 import os.path
 import webbrowser
 import pyperclip
@@ -78,7 +79,10 @@ def main():
         previous_question = "Назвіть індустріальні об'єкти, які були побудовані у другій половині 50-х років - на " \
                             "початку 60-х років. "
         while True:
-            with open('../site_code.html') as site_code_file:
+            try:
+                # with open("../site_code.html") as site_code_file:
+                #     string_file = site_code_file.read()
+                site_code_file = codecs.open('../site_code.html', 'r', 'utf-8')
                 string_file = site_code_file.read()
                 REQUIRED_CLASS = "student-session-question-title"
                 found_index = string_file.find(REQUIRED_CLASS)
@@ -88,6 +92,9 @@ def main():
                         last_index = i + 1
                         break
                 site_code_file.close()
+            except PermissionError as exc:
+                print("OK")
+                continue
 
             question = string_file[(found_index + len(REQUIRED_CLASS) + 2):(found_index + len(REQUIRED_CLASS) + 2
                                                                             + last_index)]
@@ -97,22 +104,22 @@ def main():
                 time.sleep(2)
                 query = "https://www.google.com/"
                 webbrowser.open(query)
-                with open('all_questions.txt', 'a') as all_question_file:
+                with open('all_questions_artem.txt', 'a') as all_question_file:
                     all_question_file.write(question + '\n')
                 all_question_file.close()
 
-                with open('../previous_questions.txt', 'r') as previous_questions_file:
+                with open('../previous_questions_artem.txt', 'r') as previous_questions_file:
                     previous_file_id = previous_questions_file.read()
                     service.files().delete(fileId=previous_file_id).execute()
 
                 previous_questions_file.close()
-                file_metadata = {'name': 'all_questions.txt'}
-                media = MediaFileUpload('all_questions.txt', mimetype='text/plain')
+                file_metadata = {'name': 'all_questions_artem.txt'}
+                media = MediaFileUpload('all_questions_artem.txt', mimetype='text/plain')
                 file = service.files().create(body=file_metadata,
                                               media_body=media,
                                               fields='id').execute()
                 print('File ID: %s' % file.get('id'))
-                with open('../previous_questions.txt', 'w') as previous_questions_file:
+                with open('../previous_questions_artem.txt', 'w') as previous_questions_file:
                     previous_questions_file.write(file.get('id'))
 
                 previous_questions_file.close()

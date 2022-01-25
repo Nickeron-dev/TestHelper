@@ -25,6 +25,7 @@ import os.path
 import webbrowser
 import pyperclip
 import time
+import codecs
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -78,16 +79,18 @@ def main():
         previous_question = "Назвіть індустріальні об'єкти, які були побудовані у другій половині 50-х років - на " \
                             "початку 60-х років. "
         while True:
-            with open('../site_code.html') as site_code_file:
-                string_file = site_code_file.read()
-                REQUIRED_CLASS = "student-session-question-title"
-                found_index = string_file.find(REQUIRED_CLASS)
-                last_index = 0
-                for i in range(len(string_file)):
-                    if string_file[found_index + len(REQUIRED_CLASS) + 3 + i] == '<':
-                        last_index = i + 1
-                        break
-                site_code_file.close()
+            # with open('../site_code.html') as site_code_file:
+            #     string_file = site_code_file.read()
+            site_code_file = codecs.open('../site_code.html', 'r', 'utf-8')
+            string_file = site_code_file.read()
+            REQUIRED_CLASS = "student-session-question-title"
+            found_index = string_file.find(REQUIRED_CLASS)
+            last_index = 0
+            for i in range(len(string_file)):
+                if string_file[found_index + len(REQUIRED_CLASS) + 3 + i] == '<':
+                    last_index = i + 1
+                    break
+            site_code_file.close()
 
             question = string_file[(found_index + len(REQUIRED_CLASS) + 2):(found_index + len(REQUIRED_CLASS) + 2
                                                                             + last_index)]
