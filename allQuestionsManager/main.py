@@ -42,7 +42,7 @@ def main():
         repeated_questions = {}
         while True:
             file_id_illia = '1sqjrxQE7PruFH0qp7j8tzWUH6arJylkg'
-            text_illia = service.files().get_media(fileId=file_id_illia).execute().decode('utf-8').encode('Windows-1251').decode('Windows-1251')
+            text_illia = service.files().get_media(fileId=file_id_illia).execute().decode('utf-8').encode('Windows-1251').decode('Windows-1251')  # with .decode('utf-8') also works
             file_id_daria = '1if3GwNgPMyod72awNrHyHrMi3mZxfij2'
             text_daria = service.files().get_media(fileId=file_id_daria).execute().decode('Windows-1251')
             file_id_artem = '1lRcbZqKv1vWL-xK7vxayEha7pdjl6A2t'

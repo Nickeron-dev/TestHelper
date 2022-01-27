@@ -5,27 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dccc2b37-bf51-4e72-a286-58ab3ec7c11d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../allQuestionsManager/filee.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TakeQuestionFromFile/all_questions_illia.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../TakeQuestionFromFile/all_questions_illia.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TakeQuestionFromFile/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../TakeQuestionFromFile/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TakeQuestionsFromFileDaria/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../TakeQuestionsFromFileDaria/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../allQuestionsManager/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../allQuestionsManager/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../all_questions.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../all_questions_artem.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../all_questions_artem.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../execs/run" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../previous_id_file_drive_illia.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../previous_questions_artem.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../previous_questions_illia.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../question.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../telegram-bot/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../telegram-bot/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../telegram-bot/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../telegram-bot/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../telegram-bot/.idea/telegram-bot.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../telegram-bot/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../telegram-bot/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../all_questions_illia.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../all_questions_illia.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +68,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1643106551695</updated>
-      <workItem from="1643106553585" duration="5791000" />
+      <workItem from="1643106553585" duration="5794000" />
     </task>
     <servers />
   </component>
