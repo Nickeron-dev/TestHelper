@@ -14,7 +14,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
-from googleapiclient.http import MediaFileUpload, MediaIoBaseDownload
+from googleapiclient.http import MediaFileUpload
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
 
@@ -36,8 +36,8 @@ def main():
     try:
         service = build('drive', 'v2', credentials=creds)
 
-        previous_question = "Назвіть індустріальні об'єкти, які були побудовані у другій половині 50-х років - на " \
-                            "початку 60-х років. "
+        previous_question = ""
+        first_launch = True
         while True:
             try:
                 site_code_file = codecs.open('../site_code.html', 'r', 'utf-8')
@@ -56,13 +56,13 @@ def main():
 
             question = string_file[(found_index + len(REQUIRED_CLASS) + 2):(found_index + len(REQUIRED_CLASS) + 2
                                                                             + last_index)]
-            if question != previous_question:
+            if question != previous_question and not first_launch:
                 previous_question = question
                 pyperclip.copy(question)
                 time.sleep(2)
                 query = "https://www.google.com/"
                 webbrowser.open(query)
-                with open('all_questions_daria.txt', 'a') as all_question_file:
+                with open('all_questions_daria.txt', 'a', encoding="utf-8") as all_question_file:
                     all_question_file.write(question + '\n')
                 all_question_file.close()
 
@@ -85,6 +85,11 @@ def main():
                     body=file,
                     newRevision=new_revision,
                     media_body=media_body).execute()
+
+            if first_launch:
+                first_launch = False
+                previous_question = question
+
     except HttpError as error:
         print(f'An error occurred: {error}')
 
