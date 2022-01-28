@@ -1,16 +1,13 @@
 from __future__ import print_function
 
-import codecs
 import os.path
 import requests
-import io
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-from googleapiclient.http import MediaIoBaseDownload
 
 with open('../token_main.txt') as token_file:
     TOKEN = token_file.read()
