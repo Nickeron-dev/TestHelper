@@ -40,11 +40,29 @@ def main():
         while True:
             file_id_illia = '1sqjrxQE7PruFH0qp7j8tzWUH6arJylkg'
             text_illia = service.files().get_media(fileId=file_id_illia).execute().decode('utf-8').encode('Windows-1251').decode('Windows-1251')  # with .decode('utf-8') also works
+            txt_illia = ''
+            for i in text_illia:
+                if i == '\n':
+                    txt_illia += '\n\n'
+                else:
+                    txt_illia += i
             file_id_daria = '1if3GwNgPMyod72awNrHyHrMi3mZxfij2'
-            text_daria = service.files().get_media(fileId=file_id_daria).execute().decode('Windows-1251')
+            text_daria = service.files().get_media(fileId=file_id_daria).execute().decode('utf-8').encode('Windows-1251').decode('Windows-1251')
+            txt_daria = ''
+            for i in text_daria:
+                if i == '\n':
+                    txt_daria += '\n\n'
+                else:
+                    txt_daria += i
             file_id_artem = '1lRcbZqKv1vWL-xK7vxayEha7pdjl6A2t'
             text_artem = service.files().get_media(fileId=file_id_artem).execute().decode('utf-8')
-            content_new = 'ILLIA:\n\n' + text_illia + '\n\nDARIIA:\n\n' + text_daria + '\n\nARTEM:\n\n' + text_artem
+            txt_artem = ''
+            for i in text_artem:
+                if i == '\n':
+                    txt_artem += '\n\n'
+                else:
+                    txt_artem += i
+            content_new = 'ILLIA:\n\n' + txt_illia + '\n\nDARIIA:\n\n' + txt_daria + '\n\nARTEM:\n\n' + txt_artem
 
             if content_new != content_previous:
                 print(content_new)
